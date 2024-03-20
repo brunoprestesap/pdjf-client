@@ -33,23 +33,27 @@ const ConvertPdf = () => {
 
   const convertPDF = async (e) => {
     e.preventDefault();
+
     const formData = new FormData();
     formData.append("file", file);
+
     setLoading(!loading);
+
     const result = await axios.post("http://localhost:3000/export", formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
       responseType: "blob",
     });
+
     setLoading(!loading);
+
     const url = window.URL.createObjectURL(new Blob([result.data]));
     const link = document.createElement("a");
     link.href = url;
     const fileName = file.name
     const newFileName = fileName.slice(0, fileName.length-4)
     link.setAttribute("download", newFileName + ".docx");
-    console.log(file)
     document.body.appendChild(link);
     link.click();
     link.parentNode.removeChild(link);
@@ -64,7 +68,6 @@ const ConvertPdf = () => {
         <h1>Convert PDF to Word (*.docx)</h1>
         <form
           className="flex flex-col items-center gap-5"
-          action="/result"
           method="post"
           encType="multipart/form-data"
           onSubmit={convertPDF}
@@ -92,7 +95,6 @@ const ConvertPdf = () => {
         </h1>
         <form
           className="flex flex-col items-center gap-5"
-          action="/result"
           method="post"
           encType="multipart/form-data"
           onSubmit={compressPDF}
