@@ -3,6 +3,7 @@ import DragAndDrop from "../components/DragAndDrop";
 import {
   FaFilePdf
 } from "react-icons/fa6";
+import BotaoVoltar from "../components/BotaoVoltar";
 
 const CompressPDF = () => {
   return (
@@ -23,6 +24,7 @@ const CompressPDF = () => {
           Problemas? Registro um e-sosti para a CSTI
         </p>
       </div>
+      <BotaoVoltar />
     </div>
   );
 };

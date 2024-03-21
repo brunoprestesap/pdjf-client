@@ -1,6 +1,7 @@
 import React from "react";
 import DragAndDrop from "../components/DragAndDrop";
 import { FaRegFileWord } from "react-icons/fa6";
+import BotaoVoltar from "../components/BotaoVoltar";
 
 const ConvertPDF = () => {
   return (
@@ -23,6 +24,7 @@ const ConvertPDF = () => {
           Problemas? Registro um e-sosti para a CSTI
         </p>
       </div>
+      <BotaoVoltar />
     </div>
   );
 };

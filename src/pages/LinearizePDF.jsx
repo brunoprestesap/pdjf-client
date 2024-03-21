@@ -1,6 +1,7 @@
 import React from "react";
 import DragAndDrop from "../components/DragAndDrop";
 import { FaSafari } from "react-icons/fa6";
+import BotaoVoltar from "../components/BotaoVoltar";
 
 const LinearizePDF = () => {
   return (
@@ -21,6 +22,7 @@ const LinearizePDF = () => {
           Problemas? Registro um e-sosti para a CSTI
         </p>
       </div>
+      <BotaoVoltar />
     </div>
   );
 };
