@@ -1,69 +1,19 @@
-import axios from "axios";
-import React, { useState } from "react";
+import React from "react";
+import DragAndDrop from "../components/DragAndDrop";
 
 const CompressPDF = () => {
-  const [file, setFile] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  const compressPDF = async (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("file", file);
-    console.log(file);
-    setLoading(!loading);
-    const result = await axios.post(
-      "http://localhost:3000/compress",
-      formData,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-        responseType: "blob",
-      }
-    );
-    setLoading(!loading);
-    const url = window.URL.createObjectURL(new Blob([result.data]));
-    const link = document.createElement("a");
-    link.href = url;
-    link.setAttribute("download", `${file.name}_compressed.pdf`);
-    document.body.appendChild(link);
-    link.click();
-    link.parentNode.removeChild(link);
-  };
-
   return (
-    <div className="w-full flex flex-col items-center">
-      <div className="flex flex-col w-3/6">
-        <div className="flex justify-center">
-          <h1>{loading ? "Carregando" : "Aguardando envio"}</h1>
-        </div>
-        <div className="w-full border border-3 flex flex-col justify-center items-center border-dashed border-gray-700 p-5">
-          <h1>Compress PDF</h1>
-          <form
-            className="flex flex-col items-center gap-5"
-            method="post"
-            encType="multipart/form-data"
-            onSubmit={compressPDF}
-          >
-            <input
-              type="file"
-              name="file"
-              accept="application/pdf"
-              required
-              onChange={(e) => setFile(e.target.files[0])}
-            />
-
-            <button
-              className="border-2 p-3 rounded-lg bg-slate-700 text-white"
-              type="submit"
-            >
-              Upload
-            </button>
-          </form>
-        </div>
+    <div className="bg-[#01161e] w-full h-screen flex flex-col items-center justify-center">
+      <div className="text-center m-5 flex flex-col items-center">
+        <h1 className="text-slate-300 text-4xl">Reduzir tamanho de arquivo PDF</h1>
+        <p className="text-slate-300 text-xs m-3 w-3/6 text-center">Esta ferramenta não armazena seus arquivos em sua infraestrutura, apenas os processa para entregá-los da forma que você precisa.</p>
+      </div>
+      <DragAndDrop endpoint="http://localhost:3000/compress" ext="pdf"/>
+      <div className="text-center m-5">
+        <p className="text-slate-300 font-semibold">Problemas? Registro um e-sosti para a CSTI</p>
       </div>
     </div>
-  );
+  )
 };
 
 export default CompressPDF;
