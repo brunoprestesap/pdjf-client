@@ -16,7 +16,7 @@ const OcrPDF = () => {
           apenas os processa para entregá-los da forma que você precisa.
         </p>
       </div>
-      <DragAndDrop endpoint="http://localhost:3000/ocr" ext="pdf" />;
+      <DragAndDrop endpoint="http://127.0.0.1:3000/ocr" ext="pdf" />;
       <div className="text-center m-5">
         <p className="text-slate-300 font-semibold">
           Problemas? Registro um e-sosti para a CSTI

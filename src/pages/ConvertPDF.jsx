@@ -17,7 +17,7 @@ const ConvertPDF = () => {
         </p>
       </div>
 
-      <DragAndDrop endpoint="http://localhost:3000/export" ext="docx" />
+      <DragAndDrop endpoint="http://127.0.0.1:3000/export" ext="docx" />
 
       <div className="text-center m-5">
         <p className="text-slate-300 font-semibold">
