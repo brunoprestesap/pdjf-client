@@ -18,7 +18,7 @@ const CompressPDF = () => {
           apenas os processa para entregá-los da forma que você precisa.
         </p>
       </div>
-      <DragAndDrop endpoint="http://localhost:3000/compress" ext="pdf" />
+      <DragAndDrop endpoint="http://77.37.41.68:3000/compress" ext="pdf" />
       <div className="text-center m-5">
         <p className="text-slate-300 font-semibold">
           Problemas? Registro um e-sosti para a CSTI
