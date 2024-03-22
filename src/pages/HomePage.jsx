@@ -12,9 +12,12 @@ const HomePage = () => {
   return (
     <div className="bg-[#01161e] w-full h-screen flex justify-center items-center">
       <div className="p-5 w-5/6 flex flex-col justify-center items-center">
-        <h1 className="text-[#aec3b0] text-6xl text-center font-bold">
-          PDF96 - Ferramentas para PDF
-        </h1>
+        <div className="flex flex-col items-center gap-4 m-5">
+          <FaFilePdf size="90" color="#aec3b0" />
+          <h1 className="text-[#aec3b0] text-6xl text-center font-bold mb-5">
+            PDF96 - Ferramentas para PDF
+          </h1>
+        </div>
         <div className="gap-5 grid grid-cols-4 p-5">
           <Link to="/convertPDF">
             <Card
